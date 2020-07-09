@@ -6,6 +6,7 @@ const SERVER_PORT = 6009;
 const HTTP_SERVER = express();
 const API_ENDPOINT = "https://api.openweathermap.org/data/2.5/weather";
 
+HTTP_SERVER.use(express.static("./client/build/"));
 HTTP_SERVER.listen(SERVER_PORT, () => console.log(`Listening on port ${SERVER_PORT}`));
 
 let apiToken = null;
