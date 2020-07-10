@@ -49,6 +49,7 @@ HTTP_SERVER.get("/weather/:city", async (request, result) => {
 	try {
 		const weatherData = await requestCityWeather(cityName);
 		result.status(200);
+		result.setHeader("Content-Type", "application/json");
 		return result.send(weatherData);
 	} catch (err) {
 		result.status(500);
