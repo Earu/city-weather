@@ -88,15 +88,20 @@ class App extends React.Component {
 		this.setState({ cities: this.state.cities });
 	}
 
+	renderCityWeathers() {
+		const cities = this.state.cities.filter(cityName => this.cityCache[cityName]);
+		if (cities.length > 0) {
+			return cities.map(cityName => <CityWeather data={this.cityCache[cityName]} onClose={() => this.onCityClose(cityName)}/>);
+		}
+
+		return <span className="no-weather">No weathers yet...</span>;
+	}
+
 	render() {
 		return (<div>
 			<header>City Weather 🌇</header>
 			<SearchBar onSearch={this.processCityWeather.bind(this)}/>
-			<div>{
-				this.state.cities
-					.filter(cityName => this.cityCache[cityName]) // check that we have cached data for that, if not dont display it
-					.map(cityName => <CityWeather data={this.cityCache[cityName]} onClose={() => this.onCityClose(cityName)}/>)
-			}</div>
+			<div>{this.renderCityWeathers()}</div>
 		</div>);
 	}
 }
