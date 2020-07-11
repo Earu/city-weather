@@ -2,11 +2,6 @@ import React from "react";
 import "./CityWeather.css";
 
 class CityWeather extends React.Component {
-	constructor(props) {
-		super(props);
-		console.log(props.data);
-	}
-
 	kelvinToCelsius(kelvin) {
 		return Math.round(kelvin - 273.1);
 	}
@@ -37,7 +32,7 @@ class CityWeather extends React.Component {
 			<div>Humidity: {this.props.data.main.humidity}%</div>
 			<div>Sunrise: {this.unixTimeToDate(this.props.data.sys.sunrise + this.props.data.timezone)}</div>
 			<div>Sunset: {this.unixTimeToDate(this.props.data.sys.sunset + this.props.data.timezone)}</div>
-			<button className="city-close">X</button>
+			<button className="city-close" onClick={this.props.onClose}>X</button>
 			<div className="city-last-update">Last updated at: {this.unixTimeToDate(this.props.data.dt)}</div>
 		</div>);
 	}

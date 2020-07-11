@@ -69,13 +69,23 @@ class App extends React.Component {
 			this.cityCache[cityName] = cityWeatherData;
 		}
 
-		if (!this.state.cities.includes(cityName)) {
+		if (!this.state.cities.includes(cityName) && this.cityCache[cityName]) {
 			this.state.cities.push(cityName);
 			this.setCookie("weatherCities", this.state.cities.join("|"), 2);
 			this.setState({ cities: this.state.cities }); // let react know it should process our cities
 		}
 
 		input.value = "";
+	}
+
+	onCityClose(cityName) {
+		const index = this.state.cities.indexOf(cityName);
+		if (index > -1) {
+			this.state.cities.splice(index, 1);
+		}
+
+		this.setCookie("weatherCities", this.state.cities.join("|"), 2);
+		this.setState({ cities: this.state.cities });
 	}
 
 	render() {
@@ -85,7 +95,7 @@ class App extends React.Component {
 			<div>{
 				this.state.cities
 					.filter(cityName => this.cityCache[cityName]) // check that we have cached data for that, if not dont display it
-					.map(cityName => <CityWeather data={this.cityCache[cityName]}/>)
+					.map(cityName => <CityWeather data={this.cityCache[cityName]} onClose={() => this.onCityClose(cityName)}/>)
 			}</div>
 		</div>);
 	}
