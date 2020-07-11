@@ -1,0 +1,17 @@
+.city-weather {
+	margin: 10px;
+	padding: 10px;
+	background-color: #dfdfee;
+	color: black;
+	border-radius: 2px;
+	box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.75);
+	font-weight: 15px;
+	font-weight: 300;
+}
+
+.city-weather>.city-name {
+	font-weight: 19px;
+	font-weight: 500;
+	border-bottom: 1px solid #888;
+	margin-bottom: 5px;
+}

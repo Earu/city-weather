@@ -1,26 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
-
-body, html {
-	margin: 0;
-	padding: 0;
-	background: #efefff; /* slightly blueish */
-	font-family: 'Roboto', sans-serif;
-}
-
-header {
-	color: white;
-	padding: 10px;
-	margin-bottom: 20px;
-	font-size: 25px;
-	box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.75);
-	background-color: #2a4a99;
-}
-
 .search-bar {
 	padding: 10px;
 	padding-top: 15px;
 	padding-bottom: 3px;
 	margin: 10px;
+	margin-bottom: 25px;
 	color: white;
 	border-radius: 2px;
 	max-width: 600px;
@@ -57,6 +40,7 @@ header {
 
 .search-bar>button:hover {
 	cursor: pointer;
+	background-color: #ddd;
 }
 
 @media only screen and (max-width: 600px) {
