@@ -23,7 +23,7 @@ class CityWeather extends React.Component {
 			{
 				this.props.data.weather[0]
 				? <div>
-					<img width="64px" src={"https://openweathermap.org/img/wn/" + this.props.data.weather[0].icon + "@2x.png"}/>
+					<img width="64px" alt="weather" src={"https://openweathermap.org/img/wn/" + this.props.data.weather[0].icon + "@2x.png"}/>
 					<div>Weather: {this.props.data.weather[0].description}</div>
 				</div>
 				: <div/>

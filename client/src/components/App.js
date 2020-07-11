@@ -99,7 +99,7 @@ class App extends React.Component {
 
 	render() {
 		return (<div>
-			<header>🌇 City Weather</header>
+			<header><span role="img" aria-label="city">🌇</span> City Weather</header>
 			<SearchBar onSearch={this.processCityWeather.bind(this)}/>
 			<div>{this.renderCityWeathers()}</div>
 		</div>);
